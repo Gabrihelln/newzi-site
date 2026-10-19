@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Newzi - As notícias que importam, no seu horário</title>
+<meta name="description" content="O Newzi acompanha 233 fontes confiáveis, separa o que importa para você e entrega um resumo diário claro, para ler ou ouvir em 5 minutos.">
+<meta name="theme-color" content="#F7FBFF">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Newzi">
+<meta property="og:title" content="Newzi - As notícias que importam, no seu horário">
+<meta property="og:description" content="Um resumo diário claro e personalizado, para ler ou ouvir em 5 minutos.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="headphones" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+  <symbol id="moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></symbol>
+  <symbol id="bookmark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+  <symbol id="trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m12 7 4.5 3.3-1.7 5.2H9.2l-1.7-5.2z"/><path d="M12 2v5M21.5 9.5l-5 .8M17.9 20l-3.1-4.5M6.1 20l3.1-4.5M2.5 9.5l5 .8"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="car" viewBox="0 0 24 24"><path d="M19 17h2v-5l-2.5-5.5A2 2 0 0 0 16.7 5H7.3a2 2 0 0 0-1.8 1.5L3 12v5h2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/><path d="M10 17.5h4M3 12h18"/></symbol>
+  <symbol id="grad" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="chip" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+  <symbol id="coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4M16.71 13.88l.7.71-2.82 2.82"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+  <symbol id="flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></symbol>
+  <symbol id="landmark" viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></symbol>
+  <symbol id="film" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/></symbol>
+  <symbol id="rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="skipb" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="skipf" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></symbol>
+  <symbol id="prev" viewBox="0 0 24 24"><path d="M19 20 9 12l10-8zM5 19V5"/></symbol>
+  <symbol id="next" viewBox="0 0 24 24"><path d="m5 4 10 8-10 8zM19 5v14"/></symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+  <symbol id="apple" viewBox="0 0 24 24"><path d="M16.9 12.6c.1 2 1.5 2.7 1.6 2.8-.8 2.1-2.2 4.2-3.9 4.2-.9 0-1.3-.5-2.4-.5s-1.6.5-2.4.5c-1.7.1-3.2-2.3-4-4.4-1.6-3.5-.7-8.5 3.2-8.6 1 0 1.9.6 2.5.6.7 0 1.8-.7 3-.6 1.3.1 2.2.6 2.8 1.5-2.4 1.3-2.3 4.3-.2 5.5Z" fill="currentColor" stroke="none"/><path d="M14.5 5.5c.7-.8 1.1-1.9 1-3-1 .1-2.1.8-2.8 1.6-.7.8-1.1 1.8-1 2.8 1.1.1 2.1-.5 2.8-1.4Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="gplay" viewBox="0 0 24 24"><path d="M4.5 3.2v17.6a.8.8 0 0 0 1.2.7l15.2-8.8a.8.8 0 0 0 0-1.4L5.7 2.5a.8.8 0 0 0-1.2.7Z" stroke-width="1.8"/><path d="M4.8 3 14 12l-9.2 9M14 12l3.4-3.3M14 12l3.4 3.3" stroke-width="1.6"/></symbol>
+</svg>
+
+<header class="hero" id="topo">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a href="#topo" aria-label="Newzi, início"><img class="logo" src="assets/img/logo-light.webp" alt="Newzi" width="124" height="34"></a>
+      <div class="nav-links">
+        <a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#para-quem">Para quem é</a><a href="#assuntos">Assuntos</a><a href="#planos">Planos</a>
+      </div>
+      <div class="nav-cta"><a class="btn btn-primary" href="#baixar">Baixar o app</a></div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu"><svg class="i"><use href="#menu"/></svg></button>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#para-quem">Para quem é</a><a href="#assuntos">Assuntos</a><a href="#planos">Planos</a>
+        <a class="btn btn-primary" href="#baixar">Baixar o app</a>
+      </div>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <p class="pill"><span>NOVO</span> Resumos em áudio com capítulos e velocidade ajustável</p>
+        <h1>As notícias que importam, <em>no seu horário</em>, em 5 minutos.</h1>
+        <p class="lead">O Newzi acompanha 233 fontes confiáveis por você, separa o que é relevante para os seus interesses e entrega um resumo diário claro - para ler ou ouvir no caminho.</p>
+        <div class="hero-ctas">
+          <a class="store" data-store="ios" href="#baixar"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><use href="#apple"/></svg><span><small>Disponível na</small><b>App Store</b></span></a>
+          <span class="store soon" aria-label="Em breve no Google Play"><svg class="i" viewBox="0 0 24 24" style="width:24px;height:24px" aria-hidden="true"><use href="#gplay"/></svg><span><small>Em breve no</small><b>Google Play</b></span></span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="device hero-device"><img src="assets/img/screen-home.webp" alt="Tela Início do Newzi com o resumo diário, os destaques e as últimas notícias" width="780" height="1688" fetchpriority="high"></div>
+
+        <div class="float notif" aria-hidden="true">
+          <img class="app" src="assets/img/app-icon.svg" alt="">
+          <div><b>Seu resumo de hoje está pronto ☀️</b><p>10 notícias · 5 min de áudio. Bom dia!</p></div>
+          <time>06:30</time>
+        </div>
+
+        <div class="float chips-float" aria-hidden="true">
+          <h2>Seus assuntos</h2>
+          <span class="chip on">Inteligência Artificial</span><span class="chip on">Economia</span><span class="chip">Mundo</span><span class="chip on">Brasileirão</span><span class="chip">Ciência</span><span class="chip">Saúde</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="sources" aria-label="O Newzi em números">
+  <div class="wrap">
+    <p>Curadoria diária a partir de 233 fontes do Brasil e do mundo</p>
+    <div class="stats">
+      <div class="stat"><b>233</b><span>fontes de notícias acompanhadas continuamente</span></div>
+      <div class="stat"><b>250+</b><span>assuntos e subtemas em 19 grandes áreas</span></div>
+      <div class="stat"><b>10 min</b><span>é o intervalo de atualização das notícias</span></div>
+      <div class="stat"><b>3–5 min</b><span>para ouvir o essencial do seu dia</span></div>
+      <div class="stat"><b>1 a 4</b><span>resumos por dia, nos horários que você escolher</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="como-funciona">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Como funciona</span>
+      <h2 class="h2">Configure em 1 minuto.<br>Fique bem informado todo dia.</h2>
+      <p class="lead">No primeiro acesso, você conta o que importa em poucos toques. É assim dentro do app:</p></div>
+    <ol class="flow">
+      <li class="fstep"><div class="device sm"><img src="assets/img/screen-temas.webp" alt="Tela de escolha de temas" width="780" height="1688" loading="lazy"></div>
+        <div class="cap"><span class="n">1</span><div><h3>Escolha seus temas</h3><p>Busque e marque quantos temas quiser, de Inteligência Artificial a Brasileirão.</p></div></div></li>
+      <li class="fstep"><div class="device sm"><img src="assets/img/screen-idioma.webp" alt="Tela de idioma e cobertura" width="780" height="1688" loading="lazy"></div>
+        <div class="cap"><span class="n">2</span><div><h3>Idioma e cobertura</h3><p>Português ou inglês, com notícias do Brasil, do mundo ou dos dois.</p></div></div></li>
+      <li class="fstep"><div class="device sm"><img src="assets/img/screen-horario.webp" alt="Tela de escolha do horário" width="780" height="1688" loading="lazy"></div>
+        <div class="cap"><span class="n">3</span><div><h3>Defina o horário</h3><p>Toque numa sugestão ou gire a roleta até o horário ideal.</p></div></div></li>
+      <li class="fstep"><div class="device sm"><img src="assets/img/screen-tamanho.webp" alt="Tela de escolha do tamanho do resumo" width="780" height="1688" loading="lazy"></div>
+        <div class="cap"><span class="n">4</span><div><h3>Escolha o tamanho</h3><p>Rápido, Essencial ou Completo: 5, 10 ou 15 notícias.</p></div></div></li>
+      <li class="fstep"><div class="device sm"><img src="assets/img/screen-voz.webp" alt="Tela de escolha da voz" width="780" height="1688" loading="lazy"></div>
+        <div class="cap"><span class="n">5</span><div><h3>Escolha a voz</h3><p>Ouça uma prévia e escolha quem vai narrar o seu resumo.</p></div></div></li>
+    </ol>
+    <p class="flow-end"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#check"/></svg>Depois é só ativar os avisos, revisar tudo e salvar. O primeiro resumo chega no horário escolhido.</p>
+  </div>
+</section>
+
+<section class="features" id="recursos">
+  <div class="wrap">
+    <div class="features-head">
+      <div><span class="eyebrow">Recursos</span><h2 class="h2">Tudo o que você precisa<br>para entender o dia.</h2></div>
+      <p class="lead">Leitura rápida, áudio de qualidade e alertas no tempo certo - em um app leve, bonito e feito para o Brasil.</p>
+    </div>
+    <div class="bento">
+      <article class="card c-audio">
+        <div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#headphones"/></svg></div>
+        <h3>Ouça seu resumo como um podcast</h3>
+        <p>Narração natural em português, dividida em capítulos por assunto. Pule, volte 15 s, ajuste a velocidade e continue de onde parou com o mini player.</p>
+        <div class="player" aria-hidden="true">
+          <div class="top"><div><b>Seu resumo do dia</b><small>Quarta, 15 out · 10 notícias</small></div><span class="speed">1,25×</span></div>
+          <div class="bigwave" data-wave data-played="0.43"></div>
+          <div class="times"><span>02:14</span><span>05:08</span></div>
+          <div class="ctrls">
+            <svg class="i" viewBox="0 0 24 24"><use href="#prev"/></svg>
+            <svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px"><use href="#skipb"/></svg>
+            <div class="main"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></div>
+            <svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px"><use href="#skipf"/></svg>
+            <svg class="i" viewBox="0 0 24 24"><use href="#next"/></svg>
+          </div>
+          <ul class="chapters">
+            <li class="chap"><span class="k">1</span>Economia · Copom mantém a Selic<time>00:00</time></li>
+            <li class="chap on"><span class="k">2</span>Mundo · Acordo climático avança na ONU<time>01:42</time></li>
+            <li class="chap"><span class="k">3</span>Ciência · Nova sonda rumo a asteroide<time>02:58</time></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card c-trend">
+        <div class="ico" style="background:#E7F8EF;color:#16A568"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#trend"/></svg></div>
+        <h3>Em alta agora</h3><p>Descubra o que o Brasil e o mundo estão acompanhando, com assuntos em alta na sua região.</p>
+        <ol class="trend-list" aria-hidden="true">
+          <li><em>1</em><span>Eleições 2026<small>▲ 182 notícias</small></span></li>
+          <li><em>2</em><span>Inteligência Artificial<small>▲ 96 notícias</small></span></li>
+          <li><em>3</em><span>Libertadores<small>▲ 64 notícias</small></span></li>
+        </ol>
+      </article>
+
+      <article class="card c-foot">
+        <div class="ico" style="background:#FFF4E4;color:#E99113"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3>Futebol ao vivo</h3><p>Placar em tempo real, próximos jogos e tabelas do Brasileirão e da Libertadores para quem segue futebol.</p>
+        <div class="match" aria-hidden="true">
+          <span class="live">AO VIVO</span><span class="comp">Brasileirão</span>
+          <div class="team"><span><i class="crest" style="background:linear-gradient(#C8102E 50%,#111 50%)"></i>Flamengo</span><b>2</b></div>
+          <div class="team"><span><i class="crest" style="background:#0B6E3B"></i>Palmeiras</span><b>1</b></div>
+          <div class="min">67' · 2º tempo</div>
+          <div class="upcoming">Próximo: hoje, 21:30<br>Corinthians × São Paulo</div>
+        </div>
+      </article>
+
+      <article class="card c-saved">
+        <div class="ico" style="background:#E8F3FF;color:#1674E8"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#bookmark"/></svg></div>
+        <h3>Salvos e offline</h3><p>Guarde notícias e resumos para depois - leia e ouça mesmo sem internet.</p>
+        <div class="offline" aria-hidden="true">
+          <div><i style="background:linear-gradient(135deg,#1595A7,#5FD0DE)"></i><b>Como a IA está mudando a medicina</b><small><svg class="i" viewBox="0 0 24 24" style="width:12px;height:12px"><use href="#check"/></svg>Offline</small></div>
+          <div><i style="background:linear-gradient(135deg,#D84983,#F28DB8)"></i><b>Os indicados ao prêmio de melhor filme</b><small><svg class="i" viewBox="0 0 24 24" style="width:12px;height:12px"><use href="#check"/></svg>Offline</small></div>
+        </div>
+      </article>
+
+      <article class="card c-push">
+        <div class="ico" style="background:#FFECEF;color:#E64E66"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#bell"/></svg></div>
+        <h3>Alertas na hora certa</h3><p>Aviso quando o resumo fica pronto e notícias urgentes só quando importam.</p>
+        <div class="push-stack" aria-hidden="true">
+          <div><span class="dot" style="background:#E64E66"></span><span><b>Urgente · Mundo</b><span>Terremoto de magnitude 7 atinge o Pacífico</span></span></div>
+        </div>
+      </article>
+
+      <article class="card c-dark">
+        <div class="ico" style="background:#F1EAFE;color:#8953E9"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#moon"/></svg></div>
+        <h3>Modo escuro</h3><p>Tema claro, escuro ou automático - confortável de manhã cedo e à noite.</p>
+        <div class="toggle" aria-hidden="true"></div>
+        <div class="dark-split" aria-hidden="true">
+          <div class="l"><i style="background:#087CF0;width:60%"></i><i style="background:#D8EAF7"></i><i style="background:#D8EAF7;width:80%"></i><i style="background:#EDF7FF;height:40px"></i></div>
+          <div class="d"><i style="background:#5AABFF;width:60%"></i><i style="background:#24365A"></i><i style="background:#24365A;width:80%"></i><i style="background:#16294A;height:40px"></i></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="aud" id="para-quem">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Para quem é</span>
+      <h2 class="h2">Feito para quem quer estar informado,<br>mas não tem tempo a perder.</h2>
+      <p class="lead">Se você abre cinco apps e dez abas para entender o que aconteceu, o Newzi foi feito para você.</p></div>
+    <div class="aud-grid">
+      <article class="persona"><div class="top"><div class="ico" style="background:#E8F3FF;color:#1674E8"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#briefcase"/></svg></div><div><h3>Profissionais ocupados</h3><div class="who">Gestores, autônomos, empreendedores</div></div></div>
+        <p>Comece o dia sabendo o que mexe com o seu trabalho - mercado, economia, política - antes da primeira reunião.</p>
+        <div class="tags"><span class="chip">Economia</span><span class="chip">Negócios</span><span class="chip">Política</span></div>
+        <blockquote class="quote">“Em 5 minutos de café eu já sei o que importa.”</blockquote></article>
+      <article class="persona"><div class="top"><div class="ico" style="background:#E6F6F8;color:#1595A7"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#car"/></svg></div><div><h3>Quem vive em trânsito</h3><div class="who">Motoristas, quem pega metrô, quem treina</div></div></div>
+        <p>Transforme o deslocamento ou a corrida da manhã em tempo bem informado: é só dar play e ouvir.</p>
+        <div class="tags"><span class="chip">Áudio</span><span class="chip">Capítulos</span><span class="chip">1,25×</span></div>
+        <blockquote class="quote">“Ouço o resumo inteiro no caminho para o trabalho.”</blockquote></article>
+      <article class="persona"><div class="top"><div class="ico" style="background:#F1EAFE;color:#8953E9"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#grad"/></svg></div><div><h3>Estudantes e concurseiros</h3><div class="who">Vestibular, ENEM, concursos públicos</div></div></div>
+        <p>Atualidades organizadas por tema, do Congresso à geopolítica, para estudar e chegar à prova por dentro.</p>
+        <div class="tags"><span class="chip">Atualidades</span><span class="chip">Geopolítica</span><span class="chip">Educação</span></div>
+        <blockquote class="quote">“Virou meu resumo diário de atualidades.”</blockquote></article>
+      <article class="persona"><div class="top"><div class="ico" style="background:#FFF4E4;color:#E99113"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#ball"/></svg></div><div><h3>Apaixonados por esporte</h3><div class="who">Torcedores de futebol e outros esportes</div></div></div>
+        <p>Placar ao vivo, próximos jogos, tabelas e as principais notícias do seu campeonato no mesmo lugar.</p>
+        <div class="tags"><span class="chip">Brasileirão</span><span class="chip">Libertadores</span><span class="chip">Copa do Brasil</span></div>
+        <blockquote class="quote">“Não perco mais nenhum resultado do meu time.”</blockquote></article>
+      <article class="persona"><div class="top"><div class="ico" style="background:#E7F8EF;color:#16A568"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#chip"/></svg></div><div><h3>Curiosos por tecnologia</h3><div class="who">Devs, designers, entusiastas de IA e ciência</div></div></div>
+        <p>Acompanhe IA, big techs, startups, espaço e ciência com fontes especializadas do Brasil e do exterior.</p>
+        <div class="tags"><span class="chip">IA</span><span class="chip">Startups</span><span class="chip">Astronomia</span></div>
+        <blockquote class="quote">“As novidades de IA da semana, sem precisar caçar.”</blockquote></article>
+      <article class="persona"><div class="top"><div class="ico" style="background:#FCEAF1;color:#D84983"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#film"/></svg></div><div><h3>Fãs de cultura e entretenimento</h3><div class="who">Cinema, música, novelas e reality shows</div></div></div>
+        <p>Estreias, celebridades, novelas e realities junto com o que acontece no mundo - no seu ritmo.</p>
+        <div class="tags"><span class="chip">Cinema</span><span class="chip">Novelas</span><span class="chip">Reality shows</span></div>
+        <blockquote class="quote">“O leve e o sério do dia, num app só.”</blockquote></article>
+    </div>
+  </div>
+</section>
+
+<section class="topics" id="assuntos">
+  <div class="wrap topics-grid">
+    <div>
+      <span class="eyebrow">Assuntos</span>
+      <h2 class="h2">Siga só o que importa para você.</h2>
+      <p class="lead">Mais de 250 assuntos em 19 grandes áreas. Escolha temas inteiros ou subtemas específicos - e mude quando quiser.</p>
+      <div class="scope"><div><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#landmark"/></svg>Brasil</div><div><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#globe"/></svg>Global</div><div class="on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#check"/></svg>Brasil e Global</div></div>
+    </div>
+    <ul class="cloud">
+      <li class="tchip sel"><i style="background:#E8F3FF;color:#1674E8"><svg class="i" viewBox="0 0 24 24"><use href="#chip"/></svg></i>Inteligência Artificial</li>
+      <li class="tchip"><i style="background:#E7F8EF;color:#16A568"><svg class="i" viewBox="0 0 24 24"><use href="#coins"/></svg></i>Economia</li>
+      <li class="tchip sel"><i style="background:#F1EAFE;color:#8953E9"><svg class="i" viewBox="0 0 24 24"><use href="#landmark"/></svg></i>Política</li>
+      <li class="tchip"><i style="background:#E6F6F8;color:#1595A7"><svg class="i" viewBox="0 0 24 24"><use href="#globe"/></svg></i>Mundo</li>
+      <li class="tchip"><i style="background:#FFECEF;color:#E64E66"><svg class="i" viewBox="0 0 24 24"><use href="#heart"/></svg></i>Saúde</li>
+      <li class="tchip sel"><i style="background:#E8F3FF;color:#1674E8"><svg class="i" viewBox="0 0 24 24"><use href="#flask"/></svg></i>Ciência</li>
+      <li class="tchip"><i style="background:#FFF4E4;color:#E99113"><svg class="i" viewBox="0 0 24 24"><use href="#ball"/></svg></i>Brasileirão</li>
+      <li class="tchip"><i style="background:#E7F8EF;color:#16A568"><svg class="i" viewBox="0 0 24 24"><use href="#leaf"/></svg></i>Meio Ambiente</li>
+      <li class="tchip"><i style="background:#FCEAF1;color:#D84983"><svg class="i" viewBox="0 0 24 24"><use href="#film"/></svg></i>Entretenimento</li>
+      <li class="tchip sel"><i style="background:#F1EAFE;color:#8953E9"><svg class="i" viewBox="0 0 24 24"><use href="#rocket"/></svg></i>Startups</li>
+      <li class="tchip"><i style="background:#FFECEF;color:#E64E66"><svg class="i" viewBox="0 0 24 24"><use href="#shield"/></svg></i>Cibersegurança</li>
+      <li class="tchip"><i style="background:#E6F6F8;color:#1595A7"><svg class="i" viewBox="0 0 24 24"><use href="#grad"/></svg></i>Educação</li>
+      <li class="tchip"><i style="background:#FFF4E4;color:#E99113"><svg class="i" viewBox="0 0 24 24"><use href="#trend"/></svg></i>Finanças</li>
+      <li class="tchip"><i style="background:#E8F3FF;color:#1674E8"><svg class="i" viewBox="0 0 24 24"><use href="#star"/></svg></i>Curiosidades</li>
+      <li class="tchip"><i style="background:#FCEAF1;color:#D84983"><svg class="i" viewBox="0 0 24 24"><use href="#film"/></svg></i>Novelas</li>
+      <li class="tchip"><i style="background:#FFF4E4;color:#E99113"><svg class="i" viewBox="0 0 24 24"><use href="#ball"/></svg></i>Libertadores</li>
+      <li class="tchip"><i style="background:#E6F6F8;color:#1595A7"><svg class="i" viewBox="0 0 24 24"><use href="#landmark"/></svg></i>Geopolítica</li>
+      <li class="tchip more">+ 230 assuntos</li>
+    </ul>
+  </div>
+</section>
+
+<section class="pricing" id="planos">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Planos</span>
+      <h2 class="h2">Comece grátis. Vá além com o Premium.</h2>
+      <p class="lead">O Básico já entrega seu resumo diário completo. O Premium é para quem quer mais horários, mais assuntos e mais controle.</p></div>
+    <div class="plans">
+      <article class="plan">
+        <h3 class="name">Básico</h3>
+        <div class="price"><b>Grátis</b></div>
+        <div class="sub">Para sempre, sem cartão</div>
+        <ul>
+          <li><span class="ck"><svg class="i" viewBox="0 0 24 24"><use href="#check"/></svg></span><span><b>1 resumo por dia</b><small>No horário que você escolher</small></span></li>
+          <li><span class="ck"><svg class="i" viewBox="0 0 24 24"><use href="#check"/></svg></span><span><b>Leitura e áudio narrado</b><small>Com capítulos e velocidade ajustável</small></span></li>
+          <li><span class="ck"><svg class="i" viewBox="0 0 24 24"><use href="#check"/></svg></span><span><b>Explorar e Em alta</b><small>Todas as notícias organizadas por assunto</small></span></li>
+          <li><span class="ck"><svg class="i" viewBox="0 0 24 24"><use href="#check"/></svg></span><span><b>Notificações e modo escuro</b><small>Aviso do resumo e notícias urgentes</small></span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#baixar">Começar grátis</a>
+      </article>
+      <article class="plan pro">
+        <span class="pro-badge">NEWZI PREMIUM</span>
+        <h3 class="name">Premium</h3>
+        <div class="period" role="group" aria-label="Período da assinatura">
+          <button type="button" data-period="annual" aria-pressed="true">Anual <em>−33%</em></button><button type="button" data-period="monthly" aria-pressed="false">Mensal</button>
+        </div>
+        <div class="price"><b data-price>R$ 9,99</b><span>/mês</span></div>
+        <div class="sub" data-price-note>R$ 119,90 cobrados por ano · ou R$ 14,90/mês no mensal</div>
+        <ul>
+          <li><span class="ck"><svg class="i" viewBox="0 0 24 24"><use href="#check"/></svg></span><span><b>Até 4 resumos por dia</b><small>Você escolhe os horários de cada um</small></span></li>
+          <li><span class="ck"><svg class="i" viewBox="0 0 24 24"><use href="#check"/></svg></span><span><b>Assuntos sem limite</b><small>Siga todos os temas e subtemas que quiser</small></span></li>
+          <li><span class="ck"><svg class="i" viewBox="0 0 24 24"><use href="#check"/></svg></span><span><b>Salvos ilimitados e offline</b><small>Leia e ouça mesmo sem internet</small></span></li>
+          <li><span class="ck"><svg class="i" viewBox="0 0 24 24"><use href="#check"/></svg></span><span><b>Alertas personalizados</b><small>Palavras-chave, assuntos e gols do seu time</small></span></li>
+        </ul>
+        <a class="btn" href="#baixar">Assinar o Premium</a>
+      </article>
+    </div>
+    <p class="fine">Renovação automática. Cancele quando quiser pela loja de aplicativos.</p>
+  </div>
+</section>
+
+<section class="faq" id="duvidas">
+  <div class="wrap faq-grid">
+    <div><span class="eyebrow">Dúvidas frequentes</span><h2 class="h2">Perguntas que a gente sempre ouve.</h2>
+      <div class="faq-brand"><img src="assets/img/app-icon.svg" alt="" width="96" height="96"><p>Notícias importantes, todos os dias, de forma clara, rápida e no seu ritmo.</p></div></div>
+    <div>
+      <details class="q" open><summary>De onde vêm as notícias?</summary><p>De 233 fontes jornalísticas e institucionais do Brasil e do exterior, atualizadas a cada 10 minutos. Cada notícia mostra a fonte original, e você pode abrir a matéria completa.</p></details>
+      <details class="q"><summary>Como o resumo é montado?</summary><p>O Newzi junta as notícias de várias fontes sobre o mesmo fato, escolhe as mais relevantes para os seus temas, idioma e cobertura e monta um resumo curto de cada uma. O resumo fica pronto no horário que você escolheu, para ler ou ouvir.</p></details>
+      <details class="q"><summary>Posso ouvir com a tela bloqueada?</summary><p>Sim. O áudio continua tocando com a tela bloqueada ou com outro app aberto, e você controla o resumo pela tela de bloqueio e pela central de controle.</p></details>
+      <details class="q"><summary>Quantos resumos recebo por dia?</summary><p>No plano Básico, 1 resumo por dia, no horário que você escolher. No Premium, até 4 resumos por dia, cada um no horário que for melhor para você.</p></details>
+      <details class="q"><summary>Funciona no iPhone?</summary><p>Sim, o Newzi já está disponível na App Store. A versão para Android chega em breve ao Google Play.</p></details>
+      <details class="q"><summary>Como cancelo o Premium?</summary><p>Pela assinatura na loja de aplicativos, quando quiser. Você continua com o Premium até o fim do período já pago.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="baixar" aria-label="Baixe o Newzi">
+  <div class="final">
+    <div class="final-device" aria-hidden="true"><div class="device"><img src="assets/img/screen-home.webp" alt="" width="780" height="1688" loading="lazy"></div></div>
+    <div class="copy">
+      <span class="eyebrow">Seu dia começa aqui</span>
+      <h2>Acorde sabendo o que importa.</h2>
+      <p>Baixe o Newzi, escolha seus temas e receba amanhã cedo o seu primeiro resumo.</p>
+      <div class="hero-ctas on-dark">
+        <a class="store" data-store="ios" href="#baixar"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><use href="#apple"/></svg><span><small>Disponível na</small><b>App Store</b></span></a>
+        <span class="store soon" aria-label="Em breve no Google Play"><svg class="i" viewBox="0 0 24 24" style="width:24px;height:24px" aria-hidden="true"><use href="#gplay"/></svg><span><small>Em breve no</small><b>Google Play</b></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><img class="logo" src="assets/img/logo-dark.webp" alt="Newzi" width="124" height="34" loading="lazy"><p>Notícias importantes, todos os dias, de forma clara, rápida e no seu ritmo.</p></div>
+      <div><h2>Produto</h2><ul><li><a href="#como-funciona">Como funciona</a></li><li><a href="#recursos">Recursos</a></li><li><a href="#planos">Planos</a></li><li><a href="#assuntos">Assuntos</a></li></ul></div>
+      <div><h2>Empresa</h2><ul><li><a href="#para-quem">Sobre</a></li><li><a href="#duvidas">Fontes e curadoria</a></li><li><a data-link="press" href="#">Imprensa</a></li><li><a data-link="contact" href="#">Contato</a></li></ul></div>
+      <div><h2>Legal</h2><ul><li><a data-link="terms" href="#">Termos de uso</a></li><li><a data-link="privacy" href="#">Política de privacidade</a></li><li><a data-link="delete-account" href="#">Excluir conta</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© <span data-year>2026</span> Newzi. Todos os direitos reservados.</span><span>Feito no Brasil</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
