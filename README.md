@@ -33,9 +33,7 @@ Preencha os links no topo de `assets/js/main.js`. Enquanto estiverem vazios, os 
 
 - `ios`: página do Newzi na App Store;
 - `terms`, `privacy` e `delete-account` já apontam para `termos.html`, `privacidade.html` e `excluir-conta.html`
-  (a App Store pede a política de privacidade e um jeito de excluir a conta). Antes de publicar, troque nessas
-  três páginas cada `[PREENCHER: …]` (razão social, CNPJ, endereço, e-mail de contato, encarregado, idade mínima,
-  país do servidor e foro);
+  (a App Store pede a política de privacidade e um jeito de excluir a conta);
 - `press` e `contact`: imprensa e contato (página ou `mailto:`).
 
 Quando o app chegar ao Google Play, troque o botão "Em breve no Google Play" por um link `class="store"`.
