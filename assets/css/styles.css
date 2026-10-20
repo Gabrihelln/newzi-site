@@ -260,6 +260,8 @@ section { position: relative; }
 .footer ul { list-style: none; }
 .footer li { font-size: 15px; padding: 6px 0; }
 .footer li a:hover { color: #fff; }
+.footer .foot-mail { display: inline-block; margin-top: 12px; font-size: 15px; font-weight: 600; color: #fff; }
+.footer .foot-mail:hover { text-decoration: underline; }
 .legal { border-top: 1px solid #1E2E4C; margin-top: 50px; padding-top: 26px; display: flex; justify-content: space-between; gap: 20px; font-size: 14px; color: #8195B5; }
 
 /* LEGAL PAGES (privacidade, termos, excluir-conta) */
