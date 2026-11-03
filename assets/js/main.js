@@ -1,6 +1,6 @@
 // Links that are filled in once they exist. An empty value keeps the button pointing to the download section.
 const LINKS = {
-  ios: '',            // App Store page, e.g. https://apps.apple.com/br/app/newzi/id0000000000
+  ios: 'https://apps.apple.com/br/app/newzi/id6823413319', // App Store page
   terms: 'termos.html',                 // Termos de uso
   privacy: 'privacidade.html',          // Política de privacidade
   'delete-account': 'excluir-conta.html', // Como excluir a conta e os dados
